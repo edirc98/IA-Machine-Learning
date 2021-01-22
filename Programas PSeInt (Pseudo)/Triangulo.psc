@@ -4,7 +4,6 @@ Algoritmo PintaTrianglos
 	Para i = 0 Hasta altura Con Paso 1 Hacer
 		string  = Concatenar(string, "-")
 	Fin Para
-
 	contador = 1
 	Mientras contador < altura hacer
 		Escribir Subcadena(string,0 ,contador)
