@@ -8,9 +8,6 @@ elif nota<=10:
 else:
     print("No te pases de listo payaso!")
 
-#---------------------------------------
-
-
 
 
 
