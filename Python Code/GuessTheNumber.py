@@ -1,4 +1,3 @@
-from random import random
 from random import randint
 print("A number between 0 and 10 will be generated, guess it!")
 
