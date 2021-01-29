@@ -1,36 +1,12 @@
-print("Hello World")
-numero = 1000
-print(numero)
-numero = 10.7
-print(numero)
-numero = "Hola"
-print(numero)
+list_test = ["Palabra 1","Palabra 2","Palabra 3","Palabra 4","Palabra 5"]
+tuple_test = ("TP1","TP2","TP3","TP4","TP5","TP6")
 
-palabras = "Hola me lo paso muy bien"
-cn1 = "Cadena 1"
-cn2 = "Cadena 2"
+list_test.reverse()
+list_test.append("Palabra 7")
+list_test.remove("Palabra 2")
+list_test.pop(2)
+del list_test[3]
 
-Cadenas = cn1 + cn2
+print(list_test)
 
-cortada = cn1[1:4]
-thelast = cn1[:-1]
-print(thelast)
-print(len(Cadenas))
-
-h = 4
-c = "-"
-cT = ""
-i = 0
-
-while i < h*2:
-    if i < h:
-        cT += c
-    else:
-        cT = cT[:-1]
-
-    i += 1
-    print(cT)
-
-    
-name = input("Say your name: ")
-print("Hello " + name + "!")
+#print(tuple_test)
