@@ -23,7 +23,11 @@ class Square:
     def getSquareHeight(self):
         return self.height
     def getSquareArea(self):
-        return self.__area
+        if self.__area != None:
+            return self.__area
+        else:
+            self.__area = self.__area()
+            return self.__area
     #Functions
     def __area(self):
         return self.base * self.height
