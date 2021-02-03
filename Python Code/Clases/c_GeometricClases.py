@@ -1,6 +1,10 @@
 import math
 
 class Square:
+<<<<<<< HEAD
+=======
+
+>>>>>>> f7ca382d4d89378769d10acb3e9e7ff1f4e34e04
     def __init__(self,b,h):
         self.base = b
         self.height = h
