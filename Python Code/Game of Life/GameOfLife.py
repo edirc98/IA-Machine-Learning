@@ -18,8 +18,9 @@ dimCH = heigh / nyC
 gameState = np.zeros((nxC,nyC))
 
 PauseExecution = False
+ExitGame = False
 #Bucle de ejecucion
-while True:
+while not ExitGame:
     
     newGameState = np.copy(gameState)
     #Refresco de pantalla
@@ -38,31 +39,31 @@ while True:
             posX,posY = pygame.mouse.get_pos()
             celX,celY = int(np.floor(posX / dimCW)), int(np.floor(posY/dimCH))
             newGameState[celX,celY] = 1
-
+        #RatonCentral = Exit main game loop  
+        if mouseClick[1] == 1:
+            ExitGame = True
 
     for y in range(0,nxC):
         for x in range(0,nyC):
-            
-            if not PauseExecution:
-                #Calculo del numero de vecinos de cada una de la celdas
-                n_neigh = gameState[(x - 1) % nxC, (y - 1) % nyC] + \
-                        gameState[(x)     % nxC, (y - 1) % nyC] + \
-                        gameState[(x + 1) % nxC, (y - 1) % nyC] + \
-                        gameState[(x - 1) % nxC, (y)     % nyC] + \
-                        gameState[(x + 1) % nxC, (y)     % nyC] + \
-                        gameState[(x - 1) % nxC, (y + 1) % nyC] + \
-                        gameState[(x)     % nxC, (y + 1) % nyC] + \
-                        gameState[(x + 1) % nxC, (y + 1) % nyC]
+            #Calculo del numero de vecinos de cada una de la celdas
+            n_neigh = gameState[(x - 1) % nxC, (y - 1) % nyC] + \
+                    gameState[(x)     % nxC, (y - 1) % nyC] + \
+                    gameState[(x + 1) % nxC, (y - 1) % nyC] + \
+                    gameState[(x - 1) % nxC, (y)     % nyC] + \
+                    gameState[(x + 1) % nxC, (y)     % nyC] + \
+                    gameState[(x - 1) % nxC, (y + 1) % nyC] + \
+                    gameState[(x)     % nxC, (y + 1) % nyC] + \
+                    gameState[(x + 1) % nxC, (y + 1) % nyC]
 
 
-                #Reglas de juego
-                #(1)Una celda muerta(state = 0), con 3 vecinas vivas, "revive"
-                if gameState[x,y] == 0 and n_neigh == 3:
-                    newGameState[x,y] == 1
+            #Reglas de juego
+            #(1)Una celda muerta(state = 0), con 3 vecinas vivas, "revive"
+            if gameState[x,y] == 0 and n_neigh == 3:
+                newGameState[x,y] == 1
 
-                #(2)Una celda viva con menos de 2 vecionos o mas de 3, "muere"
-                elif gameState[x,y] == 1 and (n_neigh < 2 or n_neigh > 3):
-                    newGameState [x,y] == 0
+            #(2)Una celda viva con menos de 2 vecionos o mas de 3, "muere"
+            elif gameState[x,y] == 1 and (n_neigh < 2 or n_neigh > 3):
+                newGameState [x,y] == 0
 
             #Cada un de los cuadraditos con sus 4 coordenadas
             poly = [((x)  * dimCW, y * dimCH),
