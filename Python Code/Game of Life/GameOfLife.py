@@ -30,10 +30,11 @@ gameState[5,5] = 1
 
 #Bucle de ejecucion
 while not ExitGame:
+    # Copy status
     newGameState = np.copy(gameState)
     #Refresco de pantalla
     screen.fill(bg)
-    time.sleep(0.1)
+    
 
     #Contrtol de eventos de teclado y raton
     events = pygame.event.get()
@@ -62,15 +63,10 @@ while not ExitGame:
         for y in range(0,nyC):
             if not PauseExecution:
                 #Calculo del numero de vecinos de cada una de la celdas
-                n_neigh = gameState[(x - 1) % nxC, (y - 1) % nyC] + \
-                          gameState[(x)     % nxC, (y - 1) % nyC] + \
-                          gameState[(x + 1) % nxC, (y - 1) % nyC] + \
-                          gameState[(x - 1) % nxC, (y)     % nyC] + \
-                          gameState[(x + 1) % nxC, (y)     % nyC] + \
-                          gameState[(x - 1) % nxC, (y + 1) % nyC] + \
-                          gameState[(x)     % nxC, (y + 1) % nyC] + \
-                          gameState[(x + 1) % nxC, (y + 1) % nyC]
-
+                n_neigh = gameState[(x-1)%nxC,(y-1)%nyC] + gameState[(x)%nxC,(y-1)%nyC] + \
+                        gameState[(x+1)%nxC,(y-1)%nyC] + gameState[(x-1)%nxC,(y)%nyC] + \
+                        gameState[(x+1)%nxC,(y)%nyC] + gameState[(x-1)%nxC,(y+1)%nyC] + \
+                         gameState[(x)%nxC,(y+1)%nyC] + gameState[(x+1)%nxC,(y+1)%nyC]
 
                 #Reglas de juego
                 #(1)Una celda muerta(state = 0), con 3 vecinas vivas, "revive"
@@ -94,8 +90,9 @@ while not ExitGame:
             else:
                 pygame.draw.polygon(screen,(255,255,255),poly,0)
             
-            gameState = np.copy(newGameState)
-
+    
+    gameState = np.copy(newGameState)
+    time.sleep(0.1)
     pygame.display.flip()
 
 
