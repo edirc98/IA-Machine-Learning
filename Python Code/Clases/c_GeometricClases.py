@@ -1,12 +1,30 @@
 import math
 
-class Square:
+class Coord:
+    def __init__(self,cl):
+        self.__x = cl[0]
+        self.__y = cl[1]
+    
+    #Setters
+    def setX(self,new_X):
+        self.__x = new_X
+    def setY(self,new_Y):
+        self.__y = new_Y
+    
+    #Getters
+    def getX(self):
+        return self.__x
+    def getY(self):
+        return self.__y
 
+
+class Square:
     #Constructor
-    def __init__(self,b,h):
+    def __init__(self,b,h,CO):
         self.base = b
         self.height = h
         self.__area = self.__area()
+        self.coords = Coord(CO)
 
     #Setters
     def setSquareData(self,newBase,newHeight):
@@ -58,7 +76,6 @@ class Triangle:
     def __area(self):
         return ((self.base * self.height) / 2)
 
-
 class Circle:
     #Constructor
     def __init__(self,radius):
@@ -78,7 +95,6 @@ class Circle:
     def __area(self):
         return math.pi * self.radius**2
 
-s1 = Square(10,10)
-t1 = Triangle(10,5)
-c1 = Circle(5)
+MySquare = Square(10,5,[3,4])
+print(MySquare.coords.getY())
 
