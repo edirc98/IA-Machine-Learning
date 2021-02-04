@@ -18,6 +18,7 @@ class Coord:
         return self.__y
 
 
+
 class Square:
     #Constructor
     def __init__(self,b,h,CO):
