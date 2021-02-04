@@ -18,18 +18,25 @@ class Coord:
 #PADRE(FIGURA GEOMETRICA)
 class GeometricFigrue:
 
-    def __init__(self,CoordsList):
+    def __init__(self,CoordsList,Color):
         self.__coords = Coord(CoordsList)
+        self.__color = Color
     
     def getCoord_X(self):
         return self.__coords.getX()
     def getCoord_Y(self):
         return self.__coords.getY()
+    #Get/Set Color
+    def getColor(self):
+        return self.__color
+    def setColor(self,newColor):
+        self.__color = newColor
+
 
 #HIJA(CUADRADO) Hereda de figura Geometrica
 class Cuadrado(GeometricFigrue):
-    def __init__(self,CoordsList,b,h):
-        super().__init__(CoordsList)
+    def __init__(self,CoordsList,b,h,Color):
+        super().__init__(CoordsList,Color)
         self.__base = b
         self.__height = h
         self.__area = self.__CalcArea()
@@ -40,9 +47,20 @@ class Cuadrado(GeometricFigrue):
     def GetArea(self):
         return self.__area
 
+    def Myfunc(self):
+        print(self.getCoord_X()) 
 
-c1 = Cuadrado([4,4],5,6)
+class Circle(GeometricFigrue):
+    def __init__(self,CoordsList,radius,Color):
+        super.__init__(CoordsList,Color)
+        self.radius = radius
+
+c1 = Cuadrado([4,4],5,6,"Red")
 
 print(c1.getCoord_X())
 print(c1.GetArea())
+print(c1.getColor())
+
+
+
 

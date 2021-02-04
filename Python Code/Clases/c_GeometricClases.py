@@ -1,22 +1,6 @@
 import math
-
-class Coord:
-    def __init__(self,cl):
-        self.__x = cl[0]
-        self.__y = cl[1]
-    
-    #Setters
-    def setX(self,new_X):
-        self.__x = new_X
-    def setY(self,new_Y):
-        self.__y = new_Y
-    
-    #Getters
-    def getX(self):
-        return self.__x
-    def getY(self):
-        return self.__y
-
+from c_Inheritance import GeometricFigrue
+from c_Inheritance import Coord
 
 
 class Square:
