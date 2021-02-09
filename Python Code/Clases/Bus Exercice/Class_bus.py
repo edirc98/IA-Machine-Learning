@@ -1,18 +1,26 @@
+from Class_Ticket import Ticket
 
-class bus:
-    def __init__(self, sites,id):
+class Bus:
+    def __init__(self, sites,id,price):
         self.__sites = sites
         self.__bus_id = id
-        self.__selledTickets = 0
-        self.__remainTickets = sites
+        self.__Tickets = self.createTicketsList(sites,price)
 
     def getBusSites(self):
         return self.__sites
     def getBusId(self):
         return self.__bus_id
 
-    def getSelledTickets(self):
-        return self.__selledTickets
-    def setSelledTickets(self, numSelled):
-        self.__selledTickets = numSelled
-        self.__remainTickets -= numSelled
+        
+
+
+    #FUNCTIONS
+    def createTicketsList(self,sites,price):
+        aux = []
+        for i in range(0,sites):
+            ticket = Ticket(price)
+            aux.append(ticket)
+        return aux
+
+    def __str__(self):
+        return "Bus con id: " + str(self.__bus_id) + "\n" + "Numero de sitios: " + str(self.__sites) + "\n"

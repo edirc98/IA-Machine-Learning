@@ -1,3 +1,27 @@
 #Ejercico Bus con clases
-import Class_bus
+from Class_gestor import busGestion
+
+
+
+        
+
+
+
+
+
+def main():
+    Gestion = busGestion()
+    print(Gestion)
+
+
+
+
+
+
+
+
+
+main()
+
+
 
