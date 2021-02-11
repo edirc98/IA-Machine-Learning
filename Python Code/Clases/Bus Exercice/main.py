@@ -1,5 +1,8 @@
 from Class_gestor import busGestion
+import os
 
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 def menu(): 
     menu_str = """
     -------------------------------------------------
@@ -14,6 +17,7 @@ def menu():
     """ 
     print(menu_str)   
     command = input("Select option writing the keyword: ")
+    clear_screen()
     return command
 
 def sellingData():
@@ -29,7 +33,9 @@ def returnData():
 def main():
     running = True
     Gestion = busGestion()
+    
     while running: 
+        
         command = menu()
         if command == "Sell":
             busID,selledTickets = sellingData()
