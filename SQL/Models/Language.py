@@ -14,3 +14,7 @@ class Language:
         return self.__language
     def setanguaeName(self,newLanguageName):
         self.__language = newLanguageName
+
+    
+    def __str__(self):
+        return "ID: " + str(self.getLanguageId()) + " || Language: " + self.getLanguageName() 
