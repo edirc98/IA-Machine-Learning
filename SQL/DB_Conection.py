@@ -1,16 +1,19 @@
 import mysql.connector
 
+
 cnx = mysql.connector.connect(user='root', password='edi1998', host='localhost', database='cdscollection')
 
 
 
 cursor = cnx.cursor()
 query = 'SELECT cds.buyer FROM cds'
+
 cursor.execute(query)
 cds = cursor.fetchall()
 
 for cd in cds:
     print('CD: ' + str(cd))
+
 
 #INSERT
 #insert = "INSERT INTO cds (buyer) VALUES ('%s')" % ('Amaya')
