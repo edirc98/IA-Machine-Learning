@@ -1,5 +1,6 @@
 #CDS Collection Aplication. 
 from Service.SQL_Connector import Connector
+from Models.Language import Language
 from Repository.LanguageRepository import AdminLanguage
 
 c = Connector()
@@ -9,3 +10,6 @@ listLanguages = aL.getLanguages()
 
 for l in listLanguages:
     print(l)
+
+#newLang = Language(0,"Suajili")
+#aL.createLanguage(newLang)
