@@ -18,8 +18,7 @@ class AdminLanguage:
     def createLanguage(self,Language):
         #INSERT Query
         q = "INSERT INTO " + self.__tableName + " (language) VALUES ('%s')" % (Language.getLanguageName())
-        cursor = self.__SQL_Connector.getCursor()
-        cursor.execute(q)
+        self.__SQL_Connector.getCursor().execute(q)
         self.__SQL_Connector.getConection().commit()
         
 
@@ -29,9 +28,8 @@ class AdminLanguage:
         languages = []
         
         q = "SELECT * FROM " + self.__tableName 
-        cursor = self.__SQL_Connector.getCursor()
-        cursor.execute(q)
-        db_languages = cursor.fetchall()
+        self.__SQL_Connector.getCursor().execute(q)
+        db_languages = self.__SQL_Connector.getCursor().fetchall()
 
         for language in db_languages:
             l = Language(language[0],language[1])

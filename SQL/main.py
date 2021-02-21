@@ -11,5 +11,5 @@ listLanguages = aL.getLanguages()
 for l in listLanguages:
     print(l)
 
-#newLang = Language(0,"Suajili")
+#newLang = Language(0,"Mandarin")
 #aL.createLanguage(newLang)
