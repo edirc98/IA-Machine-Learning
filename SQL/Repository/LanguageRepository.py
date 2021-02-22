@@ -53,6 +53,6 @@ class AdminLanguage:
             self.__SQL_Connector.getCursor().execute(q)
             self.__SQL_Connector.getConection().commit()
 
-        except connector.errors.IntegrityError:
-            print("Can NOT delete that Language, an error ocurred.")
-        
+        except Exception as ex:
+            print("Can NOT delete that Language: ")
+            print(ex)     
