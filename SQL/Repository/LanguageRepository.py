@@ -1,4 +1,3 @@
-from mysql import connector
 from Models.Language import Language
 
 class AdminLanguage:
