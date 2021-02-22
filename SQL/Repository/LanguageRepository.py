@@ -1,3 +1,4 @@
+from mysql import connector
 from Models.Language import Language
 
 class AdminLanguage:
@@ -39,9 +40,19 @@ class AdminLanguage:
 
     #Update
     def updateLanguage(self,Language):
-        #Update Query
-        pass
+        #UPDATE Query
+        q = "UPDATE " + self.__tableName + " set language = '%s' WHERE id ='%i' " % (Language.getLanguageName(), Language.getLanguageId())
+        self.__SQL_Connector.getCursor().execute(q)
+        self.__SQL_Connector.getConection().commit()
+        
     #Delete
     def deleteLanguage(self,Language):
-        #Delete Query
-        pass
+        #DELETE Query
+        try:
+            q = "DELETE FROM " + self.__tableName + " WHERE id='%i'" %(Language.getLanguageId())
+            self.__SQL_Connector.getCursor().execute(q)
+            self.__SQL_Connector.getConection().commit()
+
+        except connector.errors.IntegrityError:
+            print("Can NOT delete that Language, an error ocurred.")
+        
